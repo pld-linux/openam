@@ -5,8 +5,6 @@ Version:	1.1.4
 Release:	1
 License:	MPL
 Group:		Applications/Communications
-Group(de):	Applikationen/Kommunikation
-Group(pl):	Aplikacje/Komunikacja
 Source0:	http://www.openh323.org/bin/%{name}_%{version}.tar.gz
 Patch0:		%{name}-mak_files.patch
 URL:		http://www.openh323.org/
