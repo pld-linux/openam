@@ -1,19 +1,12 @@
-diff -durN ohphone.orig/Makefile ohphone/Makefile
---- ohphone.orig/Makefile	Mon Aug 21 08:01:36 2000
-+++ ohphone/Makefile	Sat Jan  6 12:18:48 2001
-@@ -109,13 +109,13 @@
- PWLIBDIR=$(HOME)/pwlib
- endif
- 
--include $(PWLIBDIR)/make/ptlib.mak
-+include $(PWLIBDIR)/share/pwlib/ptlib.mak
- 
- ifndef OPENH323DIR
+diff -uNr openam.orig/Makefile openam/Makefile
+--- openam.orig/Makefile	Mon Aug  5 12:10:29 2002
++++ openam/Makefile	Mon Oct 28 09:50:34 2002
+@@ -64,7 +64,7 @@
  OPENH323DIR=$(HOME)/openh323
  endif
  
 -include $(OPENH323DIR)/openh323u.mak
 +include $(OPENH323DIR)/share/misc/openh323u.mak
  
- #
- # only include svgalib support if available on this sytem
+ record:	record.c
+ 	$(CC) -o $@ $<
