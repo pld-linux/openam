@@ -1,17 +1,18 @@
 Summary:	Simple answering machine using the H.323 protocol
 Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
 Name:		openam
-Version:	1.13.4
+Version:	1.13.5
 %define fver	%(echo %{version} | tr . _)
-Release:	2
+Release:	1
 License:	MPL 1.0
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/openh323/%{name}-v%{fver}-src.tar.gz
-# Source0-md5:	6eba766ce41c5bc4dbf25a0fdb5afd09
-Patch0:		%{name}-mak_files.patch
+# Source0-md5:	3e3bc94917c0b47b04474adac4ff7e4b
+Patch0:		%{name}-cvs.patch
+Patch1:		%{name}-mak_files.patch
 URL:		http://www.openh323.org/
-BuildRequires:	openh323-devel >= 1.13.4-3
-BuildRequires:	pwlib-devel >= 1.6.5-3
+BuildRequires:	openh323-devel >= 1.15
+BuildRequires:	pwlib-devel >= 1.8
 %requires_eq	openh323
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,10 +27,12 @@ Jest czê¶ci± projektu OpenH323.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
-	OPTCCFLAGS="%{rpmcflags} %{!?debug:-DNDEBUG} -fno-rtti -fno-exceptions"
+	CXX="%{__cxx}" \
+	OPTCCFLAGS="%{rpmcflags} %{!?debug:-DNDEBUG} -fno-exceptions"
 
 %install
 rm -rf $RPM_BUILD_ROOT
