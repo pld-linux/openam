@@ -39,13 +39,13 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
 install obj_*/%{name}	$RPM_BUILD_ROOT%{_bindir}
 install *.wav		$RPM_BUILD_ROOT%{_datadir}/%{name}
 
-gzip -9nf *.tx new_msg run_example
+gzip -9nf *.txt new_msg run_example
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.txt
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
