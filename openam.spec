@@ -1,7 +1,7 @@
 Summary:	Simple answering machine using the H.323 protocol
 Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
 Name:		openam
-Version:	1.1.10
+Version:	1.1.13
 Release:	1
 License:	MPL
 Group:		Applications/Communications
@@ -37,13 +37,11 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
 install obj_*/%{name}	$RPM_BUILD_ROOT%{_bindir}
 install *.wav		$RPM_BUILD_ROOT%{_datadir}/%{name}
 
-gzip -9nf *.txt new_msg run_example
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc *.txt new_msg run_example
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
