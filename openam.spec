@@ -8,8 +8,9 @@ Group:		Applications/Communications
 Source0:	http://www.openh323.org/bin/%{name}_%{version}.tar.gz
 Patch0:		%{name}-mak_files.patch
 URL:		http://www.openh323.org/
-BuildRequires:	openh323-devel >= 1.9.6
+BuildRequires:	openh323-devel >= 1.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+%requires_eq	openh323
 
 %description
 OpenAM is a simple answering machine using the H.323 protocol. It is a
