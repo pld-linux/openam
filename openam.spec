@@ -1,16 +1,17 @@
 Summary:	Simple answering machine using the H.323 protocol
 Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
 Name:		openam
-Version:	1.1.17
-Release:	2
+Version:	1.13.4
+%define fver	%(echo %{version} | tr . _)
+Release:	1
 License:	MPL 1.0
 Group:		Applications/Communications
-Source0:	http://www.openh323.org/bin/%{name}_%{version}.tar.gz
-# Source0-md5:	9ad836b9d5aa42ee65e0f401cb5f34be
+Source0:	http://dl.sourceforge.net/openh323/%{name}-v%{fver}-src.tar.gz
+# Source0-md5:	6eba766ce41c5bc4dbf25a0fdb5afd09
 Patch0:		%{name}-mak_files.patch
 URL:		http://www.openh323.org/
-BuildRequires:	openh323-devel >= 1.12.0
-BuildRequires:	pwlib-devel >= 1.4.11
+BuildRequires:	openh323-devel >= 1.13.4-3
+BuildRequires:	pwlib-devel >= 1.6.5-3
 %requires_eq	openh323
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
