@@ -1,0 +1,1 @@
+- small fix in %install for allow build on non-x86 archs.
