@@ -1,16 +1,17 @@
 Summary:	Simple answering machine using the H.323 protocol
 Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
 Name:		openam
-Version:	1.1.16
-Release:	2
-License:	MPL
+Version:	1.1.17
+Release:	1
+License:	MPL 1.0
 Group:		Applications/Communications
 Source0:	http://www.openh323.org/bin/%{name}_%{version}.tar.gz
 Patch0:		%{name}-mak_files.patch
 URL:		http://www.openh323.org/
-BuildRequires:	openh323-devel >= 1.10.4
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	openh323-devel >= 1.11.7
+BuildRequires:	pwlib-devel >= 1.4.11
 %requires_eq	openh323
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 OpenAM is a simple answering machine using the H.323 protocol. It is a
@@ -29,7 +30,7 @@ PWLIBDIR=%{_prefix}; export PWLIBDIR
 OPENH323DIR=%{_prefix}; export OPENH323DIR
 
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
-	OPTCCFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
+	OPTCCFLAGS="%{rpmcflags} %{!?debug:-DNDEBUG} -fno-rtti -fno-exceptions"
 
 %install
 rm -rf $RPM_BUILD_ROOT
