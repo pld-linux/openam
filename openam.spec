@@ -1,6 +1,6 @@
 Summary:	Simple answering machine using the H.323 protocol
 Name:		openam
-Version:	1.0beta2
+Version:	1.0.8
 Release:	1
 License:	MPL
 Group:		Applications/Communications
