@@ -1,7 +1,7 @@
 Summary:	Simple answering machine using the H.323 protocol
 Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
 Name:		openam
-Version:	1.0.8
+Version:	1.1.4
 Release:	1
 License:	MPL
 Group:		Applications/Communications
@@ -10,7 +10,7 @@ Group(pl):	Aplikacje/Komunikacja
 Source0:	http://www.openh323.org/bin/%{name}_%{version}.tar.gz
 Patch0:		%{name}-mak_files.patch
 URL:		http://www.openh323.org/
-BuildRequires:	openh323-devel
+BuildRequires:	openh323-devel >= 1.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
@@ -22,20 +22,24 @@ OpenAM to prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323.
 Jest czê¶ci± projektu OpenH323.
 
 %prep
-%setup -qn %{name}
+%setup -q -n %{name}
 %patch0 -p1
 
 %build
 PWLIBDIR=%{_prefix}; export PWLIBDIR
 OPENH323DIR=%{_prefix}; export OPENH323DIR
+
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
-	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}"
+	OPTCCFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
 
-install obj_*/%{name} $RPM_BUILD_ROOT%{_bindir}
+install obj_*/%{name}	$RPM_BUILD_ROOT%{_bindir}
+install *.wav		$RPM_BUILD_ROOT%{_datadir}/%{name}
+
+gzip -9nf *.tx new_msg run_example
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -44,3 +48,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.txt
 %attr(755,root,root) %{_bindir}/*
+%{_datadir}/%{name}
