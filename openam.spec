@@ -11,7 +11,7 @@ URL:		http://www.openh323.org/
 BuildRequires:	openh323-devel >= 1.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 OpenAM is a simple answering machine using the H.323 protocol. It is a
 part of OpenH323 project.
 
