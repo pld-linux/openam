@@ -1,7 +1,7 @@
 Summary:	Simple answering machine using the H.323 protocol
 Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
 Name:		openam
-Version:	1.1.13
+Version:	1.1.16
 Release:	1
 License:	MPL
 Group:		Applications/Communications
