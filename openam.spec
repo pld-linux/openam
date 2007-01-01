@@ -3,7 +3,7 @@ Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
 Name:		openam
 Version:	1.13.5
 %define fver	%(echo %{version} | tr . _)
-Release:	4
+Release:	5
 License:	MPL 1.0
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/openh323/%{name}-v%{fver}-src.tar.gz
