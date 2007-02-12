@@ -1,5 +1,5 @@
 Summary:	Simple answering machine using the H.323 protocol
-Summary(pl):	Prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323
+Summary(pl.UTF-8):   Prosty automat odpowiadajÄ…cy, uÅ¼ywajÄ…cy protokoÅ‚u H.323
 Name:		openam
 Version:	1.13.5
 %define fver	%(echo %{version} | tr . _)
@@ -20,9 +20,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 OpenAM is a simple answering machine using the H.323 protocol. It is a
 part of OpenH323 project.
 
-%description -l pl
-OpenAM to prosty automat odpowiadaj±cy, u¿ywaj±cy protoko³u H.323.
-Jest czê¶ci± projektu OpenH323.
+%description -l pl.UTF-8
+OpenAM to prosty automat odpowiadajÄ…cy, uÅ¼ywajÄ…cy protokoÅ‚u H.323.
+Jest czÄ™Å›ciÄ… projektu OpenH323.
 
 %prep
 %setup -q -n %{name}
