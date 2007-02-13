@@ -1,5 +1,5 @@
 Summary:	Simple answering machine using the H.323 protocol
-Summary(pl.UTF-8):   Prosty automat odpowiadający, używający protokołu H.323
+Summary(pl.UTF-8):	Prosty automat odpowiadający, używający protokołu H.323
 Name:		openam
 Version:	1.13.5
 %define fver	%(echo %{version} | tr . _)
